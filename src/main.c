@@ -3,7 +3,9 @@
 
 int main(void) {
     InitWindow(800, 600, "Raylib FPS Starter");
-    SetTargetFPS(60);
+    SetTargetFPS(10);
+
+    DisableCursor(); // FPS-style look
 
     Camera3D camera = { 0 };
     camera.position = (Vector3){ 4.0f, 2.0f, 4.0f };
@@ -12,7 +14,7 @@ int main(void) {
     camera.fovy = 60.0f;
     camera.projection = CAMERA_PERSPECTIVE;
 
-    DisableCursor(); // FPS-style look
+    
 
     while (!WindowShouldClose()) {
         UpdateCamera(&camera, CAMERA_FIRST_PERSON);
