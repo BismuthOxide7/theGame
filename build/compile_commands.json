@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/bismuth/theGame/build",
+  "command": "/usr/bin/cc  -I/home/bismuth/theGame/include -I/home/bismuth/theGame/vendor/raylib/include -I/home/bismuth/theGame/vendor/enet/include -O3 -DNDEBUG -std=gnu99 -o CMakeFiles/theGame.dir/src/main.c.o -c /home/bismuth/theGame/src/main.c",
+  "file": "/home/bismuth/theGame/src/main.c",
+  "output": "CMakeFiles/theGame.dir/src/main.c.o"
+}
+]

@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/my_fps_game.dir/src/main.c.o -o bin/my_fps_game  -lraylib -lenet -lm -lpthread -ldl -lrt -lX11 

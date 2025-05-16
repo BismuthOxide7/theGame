@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG CMakeFiles/theGame.dir/src/main.c.o -o bin/theGame   -L/home/bismuth/theGame/vendor/raylib/lib  -L/home/bismuth/theGame/vendor/enet/lib  -Wl,-rpath,/home/bismuth/theGame/vendor/raylib/lib:/home/bismuth/theGame/vendor/enet/lib -lraylib -lenet -lm -lpthread -ldl -lrt -lX11 

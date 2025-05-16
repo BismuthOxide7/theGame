@@ -1,0 +1,3 @@
+/home/bismuth/theGame/build/CMakeFiles/theGame.dir
+/home/bismuth/theGame/build/CMakeFiles/edit_cache.dir
+/home/bismuth/theGame/build/CMakeFiles/rebuild_cache.dir
