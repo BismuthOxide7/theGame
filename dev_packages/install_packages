@@ -1,0 +1,2 @@
+sudo dpkg --set-selections < packages-list.txt
+sudo apt-get dselect-upgrade
