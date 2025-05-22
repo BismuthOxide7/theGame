@@ -8,29 +8,34 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 # Output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-# Include directories
-include_directories(
-    ${CMAKE_SOURCE_DIR}/include
-    ${CMAKE_SOURCE_DIR}/vendor/raylib/include
-    ${CMAKE_SOURCE_DIR}/vendor/enet/include
+# Add vendor libraries as subdirectories (assuming they are CMake-ready)
+add_subdirectory(vendor/raylib)
+add_subdirectory(vendor/enet)
+
+# Add your source files
+file(GLOB_RECURSE SOURCES src/*.c)
+
+# Define the executable
+add_executable(theGame ${SOURCES})
+
+# Include paths
+target_include_directories(theGame PRIVATE
+        ${CMAKE_SOURCE_DIR}/include
+        ${CMAKE_SOURCE_DIR}/vendor/raylib/src   # This is where raylib.h lives when built from source
+        ${CMAKE_SOURCE_DIR}/vendor/raylib/src/external
 )
 
-# Library directories
-link_directories(
-    ${CMAKE_SOURCE_DIR}/vendor/raylib/lib
-    ${CMAKE_SOURCE_DIR}/vendor/enet/lib
-)
 
-# Source files
-file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.c)
+# Link against the Raylib and ENet targets
+target_link_libraries(theGame PRIVATE raylib enet)
 
-# Create executable
-add_executable(${PROJECT_NAME} ${SOURCES})
-
-# Link with static libraries
-target_link_libraries(${PROJECT_NAME} raylib enet m)
-
-# Linux-specific dependencies
+# Required for Raylib (platform-specific dependencies)
 if(UNIX AND NOT APPLE)
-    target_link_libraries(${PROJECT_NAME} pthread dl rt X11)
+    target_link_libraries(theGame PRIVATE m pthread dl rt X11)
+elseif(APPLE)
+    find_library(COCOA_LIBRARY Cocoa)
+    find_library(OpenGL_LIBRARY OpenGL)
+    find_library(IOKIT_LIBRARY IOKit)
+    find_library(CoreVideo_LIBRARY CoreVideo)
+    target_link_libraries(theGame PRIVATE ${COCOA_LIBRARY} ${OpenGL_LIBRARY} ${IOKIT_LIBRARY} ${CoreVideo_LIBRARY})
 endif()

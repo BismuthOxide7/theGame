@@ -1,9 +1,8 @@
-#include <stdio.h>
 #include "raylib.h"
 
 int main(void) {
     InitWindow(800, 600, "Raylib FPS Starter");
-    SetTargetFPS(10);
+    SetTargetFPS(120);
 
     DisableCursor(); // FPS-style look
 
