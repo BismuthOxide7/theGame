@@ -2,7 +2,7 @@
 
 int main(void) {
     InitWindow(800, 600, "Raylib FPS Starter");
-    SetTargetFPS(120);
+    SetTargetFPS(180);
 
     DisableCursor(); // FPS-style look
 
