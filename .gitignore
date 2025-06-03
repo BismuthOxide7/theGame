@@ -52,4 +52,7 @@ Mkfile.old
 dkms.conf
 
 #LSP cache
-.cache/
+.cache/*
+
+# Compile commands 
+*.json
