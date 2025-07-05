@@ -16,7 +16,10 @@ add_subdirectory(vendor/enet)
 file(GLOB_RECURSE SOURCES src/*.c)
 
 # Define the executable
-add_executable(theGame ${SOURCES})
+add_executable(theGame ${SOURCES}
+        include/player.h
+        src/player.c
+        include/input.h)
 
 # Include paths
 target_include_directories(theGame PRIVATE
