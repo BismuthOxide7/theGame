@@ -19,7 +19,9 @@ file(GLOB_RECURSE SOURCES src/*.c)
 add_executable(theGame ${SOURCES}
         include/player.h
         src/player.c
-        include/input.h)
+        include/input.h
+        include/physics.h
+        src/physics.c)
 
 # Include paths
 target_include_directories(theGame PRIVATE

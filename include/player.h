@@ -7,7 +7,11 @@
 typedef struct player_struct {
     Vector3 position;
     Vector3 velocity;
-    float rotationY;   // Yaw, for turning in 3D
+    float move_speed;
+    float rotationY; // Yaw (left-right)
+    float rotationX; // Pitch (up-down)
+    bool grounded;    // On ground
+    float height;       // height above ground
     Model model;       // Raylib 3D model
     Camera3D camera; // FPS camera
 } player_struct;
